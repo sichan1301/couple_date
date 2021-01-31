@@ -31,6 +31,9 @@
             margin-right:auto;
 
         }
+        .currentTime{
+            font-size:18px;
+        }
         .mainbox{
             width:640px;
             margin-left:auto;
@@ -115,6 +118,7 @@
             <h1>시찬♥재희</h1>
             <h3 id='love'>0일째</h3>
             <h4 class="date">since 2019.11.24~ </h4>
+            <p class="currentTime">00:00</p>
         </div>
     </div>
 
@@ -191,7 +195,21 @@
         $('#sixhun').text(sixhun+'일 남음');
         $('#sixhun-date').text(sixhunDate);
        
+       
+        const CurrentTime = document.querySelector('.currentTime');
 
+        function nowTime(){
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            CurrentTime.innerText =`현재 시각 : ${ hours < 10 ? `0${hours}` : hours }: ${ minutes<10 ? `0${minutes}` : minutes }:${ seconds<10 ? `0${seconds}` : seconds }`;
+        }
+        function init(){
+            nowTime();
+            setInterval(nowTime,1000);
+        }
+        init();
     </script>
 </body>
 </html>

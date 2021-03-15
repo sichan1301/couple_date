@@ -154,6 +154,14 @@
                 <p id='sixhun-date' class='date'>0000.00.00</p>
             </div>
         </section>
+        
+        <section class='special-day'>
+            <h3 class='title'>700일</h3>
+            <div class='date-box'>
+                <p id='sevenhun' class='days-left'>0일 남음</p>
+                <p id='sevenhun-date' class='date'>0000.00.00</p>
+            </div>
+        </section>
     </div>
 
     <script
@@ -169,11 +177,11 @@
         var day = Math.floor(timeDiff / (1000 * 60 * 60 * 24) + 1);
         $('#love').text('+' + day + '일째');
 
-        //발렌타인 데이
-        var valentine = new Date('2021-02-14');
-        var timeDiff2 = valentine.getTime() - now.getTime();
-        var day2 = Math.floor(timeDiff2 / (1000 * 60 * 60 * 24) +1);
-        $('#valentine').text(day2 + '일 남음');
+        // //발렌타인 데이
+        // var valentine = new Date('2021-02-14');
+        // var timeDiff2 = valentine.getTime() - now.getTime();
+        // var day2 = Math.floor(timeDiff2 / (1000 * 60 * 60 * 24) +1);
+        // $('#valentine').text(day2 + '일 남음');
         
         //시찬 생일
         var sichanbirth = new Date('2021-04-06');
@@ -194,8 +202,15 @@
         var sixhun = Math.floor(timeDiff5/(1000*60*60*24)+1);
         $('#sixhun').text(sixhun+'일 남음');
         $('#sixhun-date').text(sixhunDate);
-       
-       
+
+        // 700일 언제인가?
+        var sevenhun = new Date(start.getTime() + 699 * (1000 * 60 * 60 * 24) );
+        var sevenhunDate = sevenhun.getFullYear() + '년' + (sevenhun.getMonth() +1) + '월' + sevenhun.getDate() +'일';
+        timeDiff6 = sevenhun.getTime() - now.getTime();
+        var sevenhun = Math.floor(timeDiff6/(1000*60*60*24) +1);
+        $('#sevenhun').text(sevenhun+'일 남음');
+        $('#sevenhun-date').text(sevenhunDate);
+
         const CurrentTime = document.querySelector('.currentTime');
 
         function nowTime(){
